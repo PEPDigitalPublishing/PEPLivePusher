@@ -3,19 +3,18 @@ Pod::Spec.new do |s|
 
     s.name            = 'PEPLivePusher'
 
-    s.version         = '0.1.2'
+    s.version         = '1.0.0'
 
     s.summary         = 'PEP直播推流器'
 
     s.license         = 'MIT'
 
-#   s.homepage        = 'http://192.168.101.53/svn/product/APP/jxm-mobile/iOS/PEPLivePusher'
     s.homepage        = 'https://github.com/PEPDigitalPublishing/PEPLivePusher'
 
 
     s.author          = { '崔冉' => 'cuir@pep.com.cn' }
 
-    s.platform        = :ios, '11.0'
+    s.platform        = :ios, '9.0'
 
     s.source          = { :git => 'https://github.com/PEPDigitalPublishing/PEPLivePusher/trunk' }
 
