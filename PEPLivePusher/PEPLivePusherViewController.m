@@ -80,8 +80,8 @@ int64_t getCurrentTimeUs() {
 // MARK: - Life Cycle
 
 - (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
-    NSLog(@"释放了");
+//    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"释放了");
 }
 
 - (void)viewDidLoad {
@@ -160,30 +160,30 @@ int64_t getCurrentTimeUs() {
     UIDevice *device = [UIDevice currentDevice] ;
     switch (device.orientation) {
         case UIDeviceOrientationFaceUp:
-            NSLog(@"屏幕朝上平躺");
+//            NSLog(@"屏幕朝上平躺");
             break;
         case UIDeviceOrientationFaceDown:
-            NSLog(@"屏幕朝下平躺");
+//            NSLog(@"屏幕朝下平躺");
             break;
         case UIDeviceOrientationUnknown:
-            NSLog(@"未知方向");
+//            NSLog(@"未知方向");
             break;
         case UIDeviceOrientationLandscapeLeft:
-            NSLog(@"屏幕向左横置");
-            [self.delegate getNotificationOrientation:PEPOrientationLeft];
+//            NSLog(@"屏幕向左横置");
+//            [self.delegate getNotificationOrientation:PEPOrientationLeft];
             break;
         case UIDeviceOrientationLandscapeRight:
-            NSLog(@"屏幕向右橫置");
-            [self.delegate getNotificationOrientation:PEPOrientationRight];
+//            NSLog(@"屏幕向右橫置");
+//            [self.delegate getNotificationOrientation:PEPOrientationRight];
             break;
         case UIDeviceOrientationPortrait:
-            NSLog(@"屏幕直立");
+//            NSLog(@"屏幕直立");
             break;
         case UIDeviceOrientationPortraitUpsideDown:
-            NSLog(@"屏幕直立，上下顛倒");
+//            NSLog(@"屏幕直立，上下顛倒");
             break;
         default:
-            NSLog(@"无法辨识");
+//            NSLog(@"无法辨识");
             break;
     }
     //返回设备方向
@@ -390,7 +390,6 @@ int64_t getCurrentTimeUs() {
         // 使用异步接口
         int ret = [self.livePusher startPushWithURLAsync:self.pushURL];
         succ = !ret;
-//        succ = ![self.livePusher startPushWithURLAsync:self.pushURL];
         
     } else {
         // 使用同步接口
@@ -845,8 +844,10 @@ int64_t getCurrentTimeUs() {
         if([[UIDevice currentDevice].model containsString:@"iPad"]) {
             if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight) {
                 pushConfig.orientation = AlivcLivePushOrientationLandscapeRight;
-            }else{
+            }else if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft){
                 pushConfig.orientation = AlivcLivePushOrientationLandscapeLeft;
+            }else{
+                pushConfig.orientation = AlivcLivePushOrientationLandscapeRight;
             }
 
         }
